@@ -4,13 +4,21 @@ package main;
 
 option go_package = "./proto";
 
+import "google/api/annotations.proto";
+
 service TestApi {
-	rpc Echo(ResponseRequest) returns (ResponseRequest) {}
+	rpc Echo(ResponseRequest) returns (ResponseRequest) {
+		option (google.api.http) = {
+			get: "/echo/{id}"
+			//body: "*"
+		};
+	}
 	rpc GetUser(UserRequest) returns (UserResponse) {}
 }
 
 message ResponseRequest {
-	string msq = 1;
+	//string msq = 1;
+	int32 id = 1;
 }
 
 message UserRequest {

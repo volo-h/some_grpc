@@ -1,0 +1,7 @@
+POST http://localhost:8081/echo
+Content-Type: application/json; boundary=WebAppBoundary
+
+{
+  "msq1": "hello world wrong",
+  "msq": "hello world rigth"
+}
